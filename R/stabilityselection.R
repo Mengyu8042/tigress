@@ -63,12 +63,12 @@ stabilityselection <-
 
       # run LARS on each randomized, sample and check which variables are selected
       if (sd(y[i1]>0)) {
-        r <- lars(xs[i1,],y[i1],max.steps=nstepsLARS,normalize=FALSE,trace=FALSE)
+        r <- lars(xs[i1,],y[i1],max.steps=nstepsLARS,normalize=FALSE,trace=FALSE, use.Gram = FALSE)
         freq<-freq + abs(sign(r$beta[2:(nstepsLARS+1),]))
         i <- i+1
       }
       if (sd(y[i2]>0)) {
-        r <- lars(xs[i2,],y[i2],max.steps=nstepsLARS,normalize=FALSE,trace=FALSE)
+        r <- lars(xs[i2,],y[i2],max.steps=nstepsLARS,normalize=FALSE,trace=FALSE, use.Gram = FALSE)
         freq<-freq + abs(sign(r$beta[2:(nstepsLARS+1),]))
         i <- i+1
       }
